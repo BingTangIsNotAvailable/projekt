@@ -1,0 +1,247 @@
+@import url('./index.css');
+/*-------------------------------- Global*/
+.Content, .Card, .Card span, .InputArea, .AlignTerminal, .TextBox, .ChatRoom,.left_header, .right_header, .Login, .Signup, .HomeCard, .Error, .Error div, .Room, .FormBox{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/*-------------------------------- APP */
+/*#root {
+  text-align: center;
+}*/
+/*-------------------------------- Home*/
+.Content {
+  width: 99.05vw;
+  height: 1800px;
+  background-image: var(--background-pic);
+  background-size: cover;
+  background-position: center;
+  gap: 20px;
+}
+.HomeCard {
+  padding: 50px;
+  width: 30em;
+  /*height: 50vh;*/
+  background-image: linear-gradient(#0084ff39 0%, transparent 75%);
+}
+.HomeCard h1 {
+  font-size: 5em;
+}
+.HomeCard p{
+  text-align: center;
+}
+/*ai chat*/
+.Room{
+  border-top: solid 7px var(--dark-blue);
+  height: 60em;
+  width: 100%;
+  background-color: var(--background-color);
+}
+.ChatRoom{
+  border: solid 5px var(--dark-blue);
+  height: 80%;
+  width: 100%;
+  border-radius: 50px;
+  color: var(--light-blue);
+  font-size: 1.5em;
+}
+.ChatRoom p{
+  padding: 20px;
+  text-align: center;
+  width: 100%;
+}
+.InputArea{
+  flex-direction: row;
+}
+.InputArea input{
+  width: 50vw;
+  height: 2em;
+  font-size: 1.5em;
+  border: solid 3px var(--dark-blue);
+  border-radius: 15px;
+  padding: 10px;
+  margin-top: 20px;
+  background-color: transparent;
+  color: var(--light-blue);
+}
+.InputArea input:focus {
+  outline: none;
+  border: 3px solid var(--light-blue);
+}
+.InputArea button{
+  margin-left: 10px;
+  font-size: 1.5em;
+  border: none;
+  border-radius: 15px;
+  background-color: var(--dark-blue);
+  color: var(--color);
+  cursor: pointer;
+  transition: background-color 0.5s;
+}
+.AlignTerminal {
+  width: 75%;
+  height: 100%;
+}
+.AlignTerminal h2{
+  margin: 0px;
+  text-align: left;
+  width: 100%;
+  color: var(--dark-blue);
+}
+/*-------------------------------- ERROR*/
+/*Looks meh change*/
+.Error {
+  height: 100vh;
+  background-color: var(--background-color);
+  color: var(--dark-red);
+}
+.Error div{
+  padding: 30px;
+  height: 100%;
+  padding: 0 5em 0 5em;
+  border: 5px solid var(--dark-red);
+  box-shadow: var(--dark-red) 0px 0px 200px 0px;
+  border-bottom: none;
+  border-top: none;
+}
+
+/*-------------------------------- User*/
+
+/*-------------------------------- GameList*/
+.Card{
+  background-color: var(--cardBackground);
+  border-radius: 30px;
+  border: 6px solid var(--blue);
+  width: 40em;
+  height: 55em;
+  padding-top: 2em;
+}
+.Card span{
+  margin: 0px 2em 0em 2em;
+  width: 100%;
+}
+.Card span img{
+  width: 80%;
+  height: 30em;
+  border-radius: 20px;
+  border: 5px solid var(--blue);
+}
+.Card h5{
+  margin-right: 2em;
+ 
+}
+.TextBox{
+  max-width: 80%;
+  max-height: 5em;
+  overflow: auto;
+  padding: 10px;
+  margin-left: 5em;
+}
+/*-------------------------------- Login/SignIn*/
+.LoginSigninApp{
+  background-image: linear-gradient(var(--blue-background) 75%, var(--background-color));
+}
+.Login, .Signup {
+  height: 90vh;
+}
+.FormBox {
+  width: 45em;
+  height: 55em;
+  background-image: linear-gradient(#0084ff39, transparent);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: white 0px 0px 2px 0px;
+  border-radius: 70px;
+  gap: 20px;
+}
+.FormBox form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.FormBox input {
+  padding: 10px;
+  margin-bottom: 40px;
+  background-color: var(--background-color);
+  border: 1px solid var(--dark-blue);
+  border-radius: 8px;
+  height: 1.5em;
+  width: 20em;
+  font-size: 1.5em;
+}
+.FormBox input:focus {
+  outline: none;
+  border: 3px solid var(--light-blue);
+}
+.FormBox legend {
+  font-size: 1.5em;
+}
+
+.FormBox button {
+  width: 15em;
+  border-radius: 10px;
+  border: none;
+  background-color: var(--dark-blue);
+  color: var(--color);
+  cursor: pointer;
+  transition: background-color 0.5s;
+}
+.FormBox button:hover, .btn:hover {
+  background-color: var(--dark-red);
+}
+.FormBox a {
+  color: var(--color);
+  text-decoration: underline;
+  margin-top: 50px;
+  transition: color 0.5s;
+}
+.FormBox a:hover {
+  color: var(--light-red);
+}
+
+
+/*-------------------------------- Header*/
+.header {
+  background-color: var(--background-color);
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.left_header, .right_header {
+  width: 50vw;
+  height: 5em;
+  flex-direction: row;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.left_header {
+  align-items: center;
+  justify-content: flex-start;
+}
+.left_header a{
+  font-size: 1.2em;
+  color: var(--dark-blue);
+  filter: none;
+  transition: filter 1s; /*lil fuker*/
+}
+.right_header{
+  justify-content: flex-end; 
+}
+.icon {
+  width: 6em;
+  height: 6em;
+  margin-right: 10px;
+  filter: sepia(100%) hue-rotate(190deg) saturate(1000%);
+  transition: filter 0.5s;
+}
+/*put in a box that WONT fuck up the whole ass layout*/
+.left_header img:hover{
+  /*color: var(--dark-red);*/
+  cursor: url("assets/hand.cur") pointer;
+  filter: none;
+}
+.left_header h1:hover{
+  filter: sepia(100%) hue-rotate(-50deg) saturate(1000%);
+}
