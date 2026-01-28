@@ -7,8 +7,8 @@ function Card() {
     <div className="Card">
       <span>
         <img src={img} alt="Game Image" />
-        <h3>Game name</h3>
-        <div className='TextBox'><p>aaaaaaaaaaa aaaaaaaaaa aaaaa aaaaaaaaaaaa aaaaaaaaaaaaaaa aaaaaaaaaaaa aaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa aaaaaaaaaa aaaaaaaaaaaa aaaaaaaa</p></div>
+        <h3>Sarania</h3>
+        <div className='TextBox'><p>A visual novel about picking the right choice in your eyes and face the consiquences. You play as a young thing, not belonging anywhere and no matter what you do its useless in the eyes of the world.</p></div>
       </span>
       <h5>Date: 1.1.2024</h5>
     </div>

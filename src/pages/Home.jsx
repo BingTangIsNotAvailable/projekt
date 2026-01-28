@@ -1,6 +1,7 @@
 import React from 'react';
 import '../App.css';
 import Header from '../parts/Header.jsx';
+import Card from '../parts/Card.jsx';
 
 /* Home page add examples of games to catch the users eye. align button in sign in and log in (done). button is too light. delete the <a> in Home and implement it to the header.*/
 /*connect git*/
@@ -13,17 +14,18 @@ function Home() {
         <div className='HomeCard'>
           <h1>Welcome</h1>
             <p>Your gateway to the universe of possibilities.</p>
-            {/*<a href="/Login">LogIn</a>
-            <a href="/Signin">SignIn</a>
-            <a href="/">Home</a>*/}
-          
             {/*<a href="/User">User</a>
             <a href="/Gamelist">Gamelist</a>*/}
             <a href="/Card">card</a>
-
         </div>
-      </div>
 
+
+      </div>
+        <div className='ExampleCards'>
+          <Card />
+          <Card />
+          <Card />
+        </div>
       {/* Here is going to be a "terminal" where you can ask an ai "smart" questions.
       Guess what? don't have to reply.
       WIP*/}
