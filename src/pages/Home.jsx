@@ -2,14 +2,15 @@ import React from 'react';
 import '../App.css';
 import Header from '../parts/Header.jsx';
 import Card from '../parts/Card.jsx';
+// Connect ai probably api to the terminal, but for now it's just a static chat room. WIP
+// train your own ai to answer questions about the game, or just have fun asking it random stuff. WIP sure
+// some problem with pages being zoomed in
 
-/* Home page add examples of games to catch the users eye. align button in sign in and log in (done). button is too light. delete the <a> in Home and implement it to the header.*/
-/*connect git*/
+// now fucusing on login and signup.
 function Home() {
   return (
     <div className="App">
       <Header />
-      {/* Just a basic Welcome page. */}
       <div className='Content'>
         <div className='HomeCard'>
           <h1>Welcome</h1>
@@ -19,8 +20,8 @@ function Home() {
             <a href="/Card">card</a>
         </div>
 
-
       </div>
+        
         <div className='ExampleCards'>
           <Card />
           <Card />
