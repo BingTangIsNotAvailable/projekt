@@ -7,10 +7,10 @@ import Signup from './pages/Signup.jsx'
 import ERROR from './pages/ERROR.jsx'
 import User from './pages/User.jsx'
 import Gamelist from './pages/Gamelist.jsx'
-import Verify from "./pages/Verify";
+import Game from './pages/Game.jsx'
+import Verify from "./pages/Verify"
+import Loading from "./pages/Loading"
 
-/*delete later*/
-import Card from './parts/Card.jsx'
 
 // Will chnage later to a different routing system if possible and READ the documantations
 /*      <nav>
@@ -18,7 +18,7 @@ import Card from './parts/Card.jsx'
         <Link to="/Login">Login</Link> |
         <Link to="/Signup">Signup</Link>
       </nav> */
-      
+
 function App() {
 
 
@@ -31,10 +31,10 @@ function App() {
         <Route path="/ERROR" element={<ERROR />} />
         <Route path="/User" element={<User />} />
         <Route path="/Gamelist" element={<Gamelist />} />
+        <Route path="/Game" element={<Game />} />
         <Route path="*" element={<ERROR />} />
-
-        <Route path="/Card" element={<Card />} />
         <Route path="/verify/:token" element={<Verify />} />
+        <Route path="/Loading" element={<Loading />} />
       </Routes>
     </>
   )

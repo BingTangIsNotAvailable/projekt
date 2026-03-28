@@ -1,6 +1,22 @@
 @import url('./index.css');
+
 /*-------------------------------- Global*/
-.Content, .Card, .Card span, .InputArea, .AlignTerminal, .TextBox, .ChatRoom,.left_header, .right_header, .Login, .Signup, .HomeCard, .Error, .Error div, .Room, .FormBox{
+.Content,
+.Card,
+.Card span,
+.InputArea,
+.AlignTerminal,
+.TextBox,
+.ChatRoom,
+.left_header,
+.right_header,
+.Login,
+.Signup,
+.HomeCard,
+.Error,
+.Error div,
+.Room,
+.FormBox {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -12,112 +28,148 @@
   text-align: center;
 }*/
 /*-------------------------------- Home*/
+/* sized up */
 .Content {
   width: 99.05vw;
-  height: 1800px;
+  height: 900px;
   background-image: var(--background-pic);
   background-size: cover;
   background-position: center;
   gap: 20px;
 }
+
 .HomeCard {
-  padding: 50px;
-  width: 30em;
-  /*height: 50vh;*/
+  padding: 25px;
+  width: 15rem;
+  height: 50vh;
+  flex-direction: column;
+  justify-content: flex-start;
   background-image: linear-gradient(#0084ff39 0%, transparent 75%);
 }
+
 .HomeCard h1 {
-  font-size: 5em;
+  font-size: 2.5rem;
 }
-.HomeCard p{
+
+.HomeCard p {
   text-align: center;
 }
 
 /*game showcase*/
 /*later make them a list that comes from the side (an arrow button) out by default*/
-.ExampleCards{
-  width: 100%;
-  height: 40em;
+.ExampleCards {
+  position: relative;
+  top: 30%;
+  height: 25rem;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  flex-direction: row;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: var(--dark-blue) var(--background-color);
+
   border: solid 5px var(--blue);
-  border-bottom: none;
   border-left: none;
   border-right: none;
-  gap: 20px;
-  padding-top: 20px;
+  gap: 15px;
+  padding: 1rem 20px;
 }
 
+
 /*ai chat*/
-.Room{
+.Room {
   border-top: solid 7px var(--dark-blue);
-  height: 60em;
+  height: 30rem;
   width: 100%;
   background-color: var(--background-color);
 }
-.ChatRoom{
-  border: solid 5px var(--dark-blue);
+
+.ChatRoom {
+  border: solid 4px var(--dark-blue);
   height: 80%;
   width: 100%;
-  border-radius: 50px;
+  border-radius: 25px;
   color: var(--light-blue);
-  font-size: 1.5em;
+  font-size: 1rem;
 }
-.ChatRoom p{
+
+.ChatRoom p {
   padding: 20px;
   text-align: center;
   width: 100%;
 }
-.InputArea{
+
+.InputArea {
   flex-direction: row;
 }
-.InputArea input{
+
+.InputArea input {
   width: 50vw;
-  height: 2em;
-  font-size: 1.5em;
+  height: 1rem;
+  font-size: 1rem;
   border: solid 3px var(--dark-blue);
-  border-radius: 15px;
+  border-radius: 10px;
   padding: 10px;
-  margin-top: 20px;
+  margin-top: 10px;
   background-color: transparent;
-  color: var(--light-blue);
+  /*color: var(--blue);*/
 }
+
 .InputArea input:focus {
   outline: none;
   border: 3px solid var(--light-blue);
 }
-.InputArea button{
-  margin-left: 10px;
-  font-size: 1.5em;
+
+/*the button is not alighned with the input*/
+.InputArea button {
+  margin-left: 20px;
+  font-size: 1rem;
   border: none;
-  border-radius: 15px;
+  border-radius: 10px;
   background-color: var(--dark-blue);
   color: var(--color);
   cursor: pointer;
   transition: background-color 0.5s;
 }
+
 .AlignTerminal {
   width: 75%;
   height: 100%;
 }
-.AlignTerminal h2{
+
+.AlignTerminal h3 {
   margin: 0px;
   text-align: left;
   width: 100%;
   color: var(--dark-blue);
+  font-size: 1.5rem;
 }
+
+.Chat {
+  width: 90%;
+  display: flex;
+  max-height: 70%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: var(--dark-blue) var(--background-color);
+}
+
 /*-------------------------------- ERROR*/
-/*Looks meh change*/
+/*Looks meh change, add a skull*/
 .Error {
   height: 100vh;
   background-color: var(--background-color);
   color: var(--dark-red);
 }
-.Error div{
+
+.Error div {
   padding: 30px;
   height: 100%;
-  padding: 0 5em 0 5em;
+  padding: 0 2.5rem 0 2.5rem;
   border: 5px solid var(--dark-red);
   box-shadow: var(--dark-red) 0px 0px 200px 0px;
   border-bottom: none;
@@ -127,90 +179,121 @@
 /*-------------------------------- User*/
 
 /*-------------------------------- GameList*/
-.Card{
+.Card {
+  padding-top: 1rem;
   background-color: var(--cardBackground);
   border-radius: 30px;
   border: 6px solid var(--blue);
-  width: 27em;
-  height: 37em;
-  padding-top: 1em;
+  width: 17rem;
+  height: 23rem;
+  justify-content: flex-start;
+  flex-shrink: 0;
 }
-.Card span{
+
+.Card span {
   width: 100%;
 }
-.Card span img{
+
+.Card span img {
   width: 80%;
-  height: 15em;
+  height: 10rem;
   border-radius: 20px;
   border: 5px solid var(--blue);
 }
-.Card span h3{
-  font-size: 2.5em;
+
+.Card span h3 {
+  font-size: 1.5rem;
 }
-.TextBox{
-  max-width: 80%;
-  height: 7em;
-  overflow: auto;
-  padding: 5px;
-  margin-left: 2.5em;
+
+.TextBox {
+  max-width: 90%;
+  height: 6rem;
+  margin-left: 1rem;
+  justify-content: flex-start;
+
+  /* Enable vertical scrolling but hide the scrollbar */
+  overflow-y: auto;
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.TextBox::-webkit-scrollbar {
+  display: none;
+}
+
 /*-------------------------------- Login/SignIn*/
-.LoginSigninApp{
+.LoginSigninApp {
   background-image: linear-gradient(var(--blue-background) 75%, var(--background-color));
 }
-.Login, .Signup {
+
+.Login,
+.Signup {
   height: 90vh;
 }
+
 .FormBox {
-  width: 45em;
-  height: 55em;
+  width: 25rem;
+  height: 30rem;
   background-image: linear-gradient(#0084ff39, transparent);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  box-shadow: white 0px 0px 2px 0px;
-  border-radius: 70px;
+  box-shadow: rgb(192, 218, 255) 0px 0px 2px 0px;
+  border-radius: 30px;
   gap: 20px;
 }
+
 .FormBox form {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+
 .FormBox input {
-  padding: 10px;
-  margin-bottom: 40px;
+  padding: 5px;
+  margin-bottom: 15px;
   background-color: var(--background-color);
-  border: 1px solid var(--dark-blue);
+  border: 2px solid var(--dark-blue);
   border-radius: 8px;
-  height: 1.5em;
-  width: 20em;
-  font-size: 1.5em;
+  height: 1rem;
+  width: 15rem;
+  font-size: 1rem;
 }
+
 .FormBox input:focus {
   outline: none;
-  border: 3px solid var(--light-blue);
+  border: 2px solid var(--light-blue);
 }
+
 .FormBox legend {
-  font-size: 1.5em;
+  font-size: 1rem;
 }
 
 .FormBox button {
-  width: 15em;
+  width: 10rem;
   border-radius: 10px;
   border: none;
   background-color: var(--dark-blue);
   color: var(--color);
   cursor: pointer;
   transition: background-color 0.5s;
-  margin-left: 0%;}
-.FormBox button:hover, .btn:hover {
+  margin-left: 0%;
+  margin-top: 10px;
+}
+
+.FormBox button:hover,
+.btn:hover {
   background-color: var(--dark-red);
 }
+
 .FormBox a {
   color: var(--color);
   text-decoration: underline;
-  margin-top: 50px;
+  margin-top: 25px;
   transition: color 0.5s;
 }
+
 .FormBox a:hover {
   color: var(--light-red);
 }
@@ -224,39 +307,98 @@
   align-items: center;
 }
 
-.left_header, .right_header {
+.left_header,
+.right_header {
   width: 50vw;
-  height: 5em;
+  height: 3.5rem;
   flex-direction: row;
   padding-left: 20px;
   padding-right: 20px;
 }
+
 .left_header {
   align-items: center;
   justify-content: flex-start;
 }
-.left_header a{
-  font-size: 1.2em;
+
+.left_header a {
+  font-size: 0.6rem;
   color: var(--dark-blue);
   filter: none;
-  transition: filter 1s; /*lil fuker*/
+  transition: filter 1s;
 }
-.right_header{
-  justify-content: flex-end; 
+
+.right_header {
+  justify-content: flex-end;
 }
+
 .icon {
-  width: 6em;
-  height: 6em;
+  width: 5rem;
+  height: 5rem;
   margin-right: 10px;
   filter: sepia(100%) hue-rotate(190deg) saturate(1000%);
   transition: filter 0.5s;
 }
-/*put in a box that WONT fuck up the whole ass layout*/
-.left_header img:hover{
-  /*color: var(--dark-red);*/
-  cursor: url("assets/hand.cur") pointer;
+
+.logo_box {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.logo_box h1 {
+  transition: filter 0.5s;
+}
+
+/*play with cursors later*/
+.logo_box:hover img {
   filter: none;
 }
-.left_header h1:hover{
-  filter: sepia(100%) hue-rotate(-50deg) saturate(1000%);
+
+.logo_box:hover h1 {
+  filter: sepia(100%) hue-rotate(-40deg) saturate(1000%);
+}
+
+/*-------------------------------- Loading*/
+
+.Loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+.loader {
+  width: 80px;
+  height: 80px;
+  border: 3px solid var(--color);
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+.loader::after {
+  content: '';
+  box-sizing: border-box;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: blue;
+  width: 25px;
+  height: 25px;
+  transform: translate(-50%, 50%);
+  border-radius: 50%;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }

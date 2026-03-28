@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Orbit:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inika:wght@400;700&display=swap');
+
 :root {
   font-family: 'Inika', serif;
   line-height: 1.5;
@@ -9,6 +10,10 @@
   color-scheme: light dark;
   color: var(--color);
   background-color: var(--background-color);
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--dark-blue) var(--background-color);
+  overflow-x: hidden;
 
 
   /*font-synthesis: none;
@@ -16,30 +21,40 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;*/
 }
-h1, h2, h3, h4 {
+
+h1,
+h2,
+h3,
+h4 {
   font-family: 'Orbitron', Arial;
   font-weight: 500;
-  font-size: 3em;
+  font-size: 2.5rem;
 }
-h2{
-  font-size: 4em;
+
+h2 {
+  font-size: 2.3rem;
 }
-h5{
-  font-size: 1em;
+
+h5 {
+  font-size: 0.5rem;
   font-weight: 400;
 }
-h4{
-  font-size: 2em;
+
+h4 {
+  font-size: 1rem;
 }
-p{
+
+p {
   font-family: 'Orbit', sans-serif;
-  font-size: 1.5em;
+  font-size: 0.75rem;
 }
+
 a {
   color: var(--light-red);
   text-decoration: inherit;
-  font-size: 1.5em;
+  font-size: 0.9rem;
 }
+
 a:hover {
   color: var(--dark-red);
 }
@@ -48,12 +63,15 @@ body {
   margin: 0;
   padding: 0;
 }
+
 /*for linear border*/
-.btn_white, .btn_blue {
-  border: 4px solid transparent;
-  border-radius: 15px;
+.btn_white,
+.btn_blue {
+  border: 3px solid transparent;
+  border-radius: 10px;
 }
-.btn_white{
+
+.btn_white {
   color: var(--color);
   /*border problem: button does not respond to border outline (its always on 1px in width) and does not react to border radius at all (button has background-image = linear(blue, white) 1)*/
   /*border-image: linear-gradient(var(--color), var(--color-dark), transparent) 1;*/
@@ -61,7 +79,8 @@ body {
     linear-gradient(var(--background-color)) padding-box,
     linear-gradient(var(--color), transparent) border-box;
 }
-.btn_blue{
+
+.btn_blue {
   color: var(--dark-blue);
   /*border-image: linear-gradient(var(--dark-blue), var(--dark-blue), transparent) 1;
   background-clip: padding-box;*/
@@ -71,13 +90,14 @@ body {
 }
 
 /*change the cursor if possible*/
-.btn{
+.btn {
   background-color: transparent;
-  margin-left: 0.7em;
-  min-width: 3.7em;
-  height: 1em;
-  padding: 0.5em 0.5em;
-  font-size: 1.7em;
+  margin-left: 1rem;
+  /*0.7*/
+  min-width: 3.7rem;
+  height: 1rem;
+  padding: 0.6rem 0.6rem;
+  font-size: 1.2rem;
   font-weight: 500;
   font-family: inherit;
   cursor: pointer;
@@ -86,33 +106,43 @@ body {
   align-items: center;
   justify-content: center;
 }
-button[type="submit"]{
-  height: 2em;
+
+button[type="submit"] {
+  height: 2rem;
 }
-.btn_round{
+
+.btn_round {
   border-radius: 50px;
-  min-width: 2.3em;
+  min-width: 2.3rem;
 }
-.btn_blue:hover, .btn_white:hover {
+
+.btn_blue:hover,
+.btn_white:hover {
   /*border-image: linear-gradient(var(--dark-red), var(--dark-red), transparent) 1;*/
   background:
     linear-gradient(var(--background-color)) padding-box,
     linear-gradient(var(--dark-red), transparent) border-box;
   color: var(--dark-red);
 }
+
 button:focus,
 button:focus-visible {
   outline: 3px var(--dark-red);
 }
 
+
+/*fix the colors, have more options based off of the design*/
 @media (prefers-color-scheme: light) {
   :root {
     --color: #000000;
     --color-dark: #00000084;
     --background-color: #ffffff;
     --background-pic: url('assets/flashBackground.png');
-    --dark-blue: #0084FF; /*#1B4BCD*/ /*0046dd*/
-    --light-blue: #2596ff; /*0084FF*/
+    --dark-blue: #0084FF;
+    /*#1B4BCD*/
+    /*0046dd*/
+    --light-blue: #2596ff;
+    /*0084FF*/
     --dark-red: #ff0000;
     --light-red: #ff6464;
     --blue-background: #DEEEFF;
@@ -120,15 +150,18 @@ button:focus-visible {
     --cardBackground: #9bcbff70;
   }
 }
+
 @media (prefers-color-scheme: dark) {
   :root {
     --color: #fff;
     --color-dark: #ffffff84;
     --background-color: #000000;
     --background-pic: url('assets/blue-background.png');
-    --dark-blue: #1C5899;/*#0046c8;*/
+    --dark-blue: #1C5899;
+    /*#0046c8;*/
     --light-blue: #79beff;
-    --dark-red: #ba0000; /*ff0000*/
+    --dark-red: #ba0000;
+    /*ff0000*/
     --light-red: #ff7575;
     --blue-background: #000A15;
     --blue: #00165d;
