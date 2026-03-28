@@ -2,13 +2,14 @@ import React from 'react';
 import '../App.css';
 import Header from '../parts/Header';
 import { useState } from "react";
+import crypto from "crypto";
 
 function Signup() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const hashPassword = (password) => {
-    // Implement a simple hash function (for demonstration purposes only)
+  /*const hashPassword = (password) => {
+    // Implement a simple hash function (for demonstration purposes only) DONE BY TEACHER, DELETE THIS AND REPLACE WITH ACTUAL HASHING IN PRODUCTION
     let hash = 0; 
     for (let i = 0; i < password.length; i++) {
       const char = password.charCodeAt(i);
@@ -16,12 +17,10 @@ function Signup() {
       hash = hash & hash; // Convert to 32-bit integer
     }
     return hash;
-  };
+  };*/
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
-
     try {
       const response = await fetch("http://localhost:3001/api/signup", {
         method: "POST",
@@ -31,7 +30,7 @@ function Signup() {
         body: JSON.stringify({
           username,
           email,
-          password_hash: hashPassword(password) // Hash the password before sending
+          password/*: hashPassword(password) // Hash the password before sending*/
         })
         
       });
@@ -70,5 +69,4 @@ function Signup() {
     </div>
   );
 }
-
 export default Signup;

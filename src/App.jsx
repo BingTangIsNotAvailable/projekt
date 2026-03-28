@@ -7,6 +7,7 @@ import Signup from './pages/Signup.jsx'
 import ERROR from './pages/ERROR.jsx'
 import User from './pages/User.jsx'
 import Gamelist from './pages/Gamelist.jsx'
+import Verify from "./pages/Verify";
 
 /*delete later*/
 import Card from './parts/Card.jsx'
@@ -33,6 +34,7 @@ function App() {
         <Route path="*" element={<ERROR />} />
 
         <Route path="/Card" element={<Card />} />
+        <Route path="/verify/:token" element={<Verify />} />
       </Routes>
     </>
   )
