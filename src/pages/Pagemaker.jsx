@@ -13,8 +13,8 @@ function Pagemaker() {
                     <form>
                         <input type="text" placeholder="Title" required minLength={3} maxLength={30} />
                         <input type="file" name="" id="" required />
-                        <textarea name="" id="" cols="30" rows="10" placeholder="Description" maxLength={500}></textarea>
-                        <button type="submit" className='btn'>Create</button>
+                        <textarea name="" id="" cols="30" rows="10" placeholder="Description" maxLength={5000}></textarea>
+                        <button type="submit" className='btn button'>Create</button>
                     </form>
                 </div>
             </div>

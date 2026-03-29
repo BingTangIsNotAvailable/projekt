@@ -2,7 +2,6 @@ import React from 'react';
 import '../App.css';
 import Header from '../parts/Header';
 import { useState } from "react";
-import crypto from "crypto";
 
 function Signup() {
   const [username, setUsername] = useState("");
@@ -32,7 +31,7 @@ function Signup() {
           email,
           password/*: hashPassword(password) // Hash the password before sending*/
         })
-        
+
       });
 
       const data = await response.json();
@@ -45,21 +44,21 @@ function Signup() {
 
   return (
     <div className="LoginSigninApp">
-      <Header/>
+      <Header />
       <div className='Signup'>
         <div className='FormBox'>
           <h2>Sign Up</h2>
           <form onSubmit={handleSubmit}>
             <div>
               <legend>Username</legend>
-              <input type="text" value={username} onChange={(e) => setUsername(e.target.value)}/>
+              <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
 
               <legend>Password</legend>
-              <input type="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
+              <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
 
               <legend>Email</legend>
-              <input type="email" value={email} onChange={(e) => setEmail(e.target.value)}/>
-            
+              <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+
             </div>
             <button type="submit" className='btn'>Sign up</button>
             <a href="/Login">Already have an account?</a>

@@ -1,48 +1,52 @@
-import React from 'react';
 import '../App.css';
 import Header from '../parts/Header';
 import Card from '../parts/Card';
+import React, { useEffect, useState } from 'react';
 
 function Gamelist() {
+  const [search, setSearch] = useState("");
+  const [games, setGames] = useState([]);
+  const [genres, setGenres] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:3001/api/genres")
+      .then(res => res.json())
+      .then(data => setGenres(data));
+  }, []);
+
+  useEffect(() => {
+    const url = search
+      ? `http://localhost:3001/api/games/search/${search}`
+      : "http://localhost:3001/api/games";
+
+    fetch(url)
+      .then(res => res.json())
+      .then(data => setGames(data));
+  }, [search]);
+
   return (
     <div className="Gamelist">
       <Header />
       <div className="Contentlist">
         <div className='Genres'>
           <h3>Genres</h3>
-          <a href="#">Action</a>
-          <a href="#">Adventure</a>
-          <a href="#">RPG</a>
-          <a href="#">Strategy</a>
-          <a href="#">Simulation</a>
-          <a href="#">Sports</a>
-          <a href="#">Puzzle</a>
-          <a href="#">Racing</a>
-          <a href="#">Fighting</a>
-          <a href="#">MMO</a>
-          <a href="#">Horror</a>
-          <a href="#">Survival</a>
-          <a href="#">Webs</a>
-          <a href="#">Other</a>
+          {genres.map(genre => (
+            <a key={genre.id} href="#">{genre.name}</a>
+          ))}
         </div>
 
         <div className='Games'>
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
+          <div className='Search'>
+            <input
+              type="text"
+              placeholder="Search games..."
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+            />
+          </div>
+          {games.map(game => (
+            <Card key={game.id} game={game} />
+          ))}
         </div>
       </div>
     </div>

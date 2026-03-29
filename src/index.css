@@ -127,7 +127,7 @@ button[type="submit"] {
 
 .btn_blue:hover,
 .btn_white:hover,
-button:hover {
+.button:hover {
   /*border-image: linear-gradient(var(--dark-red), var(--dark-red), transparent) 1;*/
   background:
     linear-gradient(var(--background-color)) padding-box,
@@ -135,12 +135,12 @@ button:hover {
   color: var(--dark-red);
 }
 
-button:focus,
-button:focus-visible {
+.button:focus,
+.button:focus-visible {
   outline: 3px var(--dark-red);
 }
 
-button {
+.button {
   font-family: 'Orbitron', Arial;
   font-size: 0.7rem;
   width: 5rem;
