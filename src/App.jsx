@@ -10,6 +10,7 @@ import Gamelist from './pages/Gamelist.jsx'
 import Game from './pages/Game.jsx'
 import Verify from "./pages/Verify"
 import Loading from "./pages/Loading"
+import Pagemaker from "./pages/Pagemaker"
 
 
 // Will chnage later to a different routing system if possible and READ the documantations
@@ -35,6 +36,7 @@ function App() {
         <Route path="*" element={<ERROR />} />
         <Route path="/verify/:token" element={<Verify />} />
         <Route path="/Loading" element={<Loading />} />
+        <Route path="/Pagemaker" element={<Pagemaker />} />
       </Routes>
     </>
   )

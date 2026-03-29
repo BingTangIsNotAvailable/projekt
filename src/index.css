@@ -6,6 +6,7 @@
   font-family: 'Inika', serif;
   line-height: 1.5;
   font-weight: 400;
+  user-select: none;
 
   color-scheme: light dark;
   color: var(--color);
@@ -53,6 +54,14 @@ a {
   color: var(--light-red);
   text-decoration: inherit;
   font-size: 0.9rem;
+}
+
+a:active {
+  color: var(--dark-red);
+}
+
+a:focus {
+  color: var(--dark-red);
 }
 
 a:hover {
@@ -117,7 +126,8 @@ button[type="submit"] {
 }
 
 .btn_blue:hover,
-.btn_white:hover {
+.btn_white:hover,
+button:hover {
   /*border-image: linear-gradient(var(--dark-red), var(--dark-red), transparent) 1;*/
   background:
     linear-gradient(var(--background-color)) padding-box,
@@ -128,6 +138,25 @@ button[type="submit"] {
 button:focus,
 button:focus-visible {
   outline: 3px var(--dark-red);
+}
+
+button {
+  font-family: 'Orbitron', Arial;
+  font-size: 0.7rem;
+  width: 5rem;
+  height: 2rem;
+  border-radius: 5px;
+  border: none;
+  background-color: var(--blue-background);
+  box-shadow: var(--blue) 0px 0px 10px 0px;
+  border: 1px solid var(--blue);
+  color: var(--color);
+  cursor: pointer;
+  transition: background-color 0.5s;
+  margin-top: 10px;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 
