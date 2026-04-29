@@ -34,8 +34,7 @@ function Gamelist() {
             <a key={genre.id} href="#">{genre.name}</a>
           ))}
         </div>
-
-        <div className='Games'>
+        <div className='Change'>
           <div className='Search'>
             <input
               type="text"
@@ -44,9 +43,11 @@ function Gamelist() {
               onChange={(e) => setSearch(e.target.value)}
             />
           </div>
-          {games.map(game => (
-            <Card key={game.id} game={game} />
-          ))}
+          <div className='Games'>
+            {games.map(game => (
+              <Card key={game.id} game={game} />
+            ))}
+          </div>
         </div>
       </div>
     </div>

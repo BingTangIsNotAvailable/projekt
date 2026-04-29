@@ -280,7 +280,7 @@
   align-items: center;
 }
 
-.FormBox input {
+.FormBox input, .Search input {
   padding: 5px;
   margin-bottom: 15px;
   background-color: var(--background-color);
@@ -343,6 +343,7 @@
   width: 100%;
   display: flex;
   align-items: center;
+  /*user-select: none;*/
 }
 
 .left_header,
@@ -488,6 +489,16 @@
   margin-top: 1rem;
   margin-left: 1rem;
   color: var(--color);
+}
+
+.Change{
+  width: 100%; /*well this is fucked up*/
+}
+.Search{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 /*-------------------------------- Game*/
@@ -789,3 +800,5 @@
   background-color: var(--background-color);
   border-radius: 8px;
 }
+
+/*reuse some things so name styles and add them to inputs (login input = input_b)*/
