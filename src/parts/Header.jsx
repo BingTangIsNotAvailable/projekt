@@ -25,7 +25,9 @@ function Header() {
           </a>
         </div>
         <div className='right_header'>
-          <button className='btn_white btn'>light/dark</button>
+          <button className='btn_white btn'> {/* UNDONE*/}
+            L/D
+          </button>
           {/*<Link to="/Login" className='btn_white btn'>Log In</Link>
           <Link to="/Signup" className='btn_blue btn'>Sign Up</Link>
           <Link to="/User" className='btn_white btn_round btn'>User</Link>*/}
