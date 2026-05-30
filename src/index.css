@@ -159,18 +159,91 @@ button[type="submit"] {
 }
 
 
-/*fix the colors, have more options based off of the design*/
+.Clear_btn {
+  border: none;
+  background: transparent;
+  transition: none;
+  font-size: 1.5rem;
+  color: var(--color);
+  cursor: pointer;
+}
+
+.Clear_btn:hover {
+  color: var(--dark-red);
+}
+
+.Clear_btn.playing i {
+  color: var(--dark-red);
+  text-shadow: 0 0 8px var(--dark-red);
+  animation: pulseMusic 1.5s infinite ease-in-out;
+  display: inline-block;
+}
+
+@keyframes pulseMusic {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.25);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Theme configuration: supports both system preference and manual data-theme override */
+:root {
+  --color: #fff;
+  --color-dark: #ffffff84;
+  --background-color: #000000;
+  --background-pic: url('assets/blue-background.png');
+  --dark-blue: #1C5899;
+  --light-blue: #79beff;
+  --dark-red: #ba0000;
+  --light-red: #ff7575;
+  --blue-background: #000A15;
+  --blue: #00165d;
+  --cardBackground: #00145770;
+}
+
+:root[data-theme="dark"] {
+  --color: #fff;
+  --color-dark: #ffffff84;
+  --background-color: #000000;
+  --background-pic: url('assets/blue-background.png');
+  --dark-blue: #1C5899;
+  --light-blue: #79beff;
+  --dark-red: #ba0000;
+  --light-red: #ff7575;
+  --blue-background: #000A15;
+  --blue: #00165d;
+  --cardBackground: #00145770;
+}
+
+:root[data-theme="light"] {
+  --color: #000000;
+  --color-dark: #00000084;
+  --background-color: #ffffff;
+  --background-pic: url('assets/flashBackground.png');
+  --dark-blue: #0084FF;
+  --light-blue: #2596ff;
+  --dark-red: #ff0000;
+  --light-red: #ff6464;
+  --blue-background: #DEEEFF;
+  --blue: #9BCBFF;
+  --cardBackground: #9bcbff70;
+}
+
 @media (prefers-color-scheme: light) {
-  :root {
+  :root:not([data-theme="dark"]) {
     --color: #000000;
     --color-dark: #00000084;
     --background-color: #ffffff;
     --background-pic: url('assets/flashBackground.png');
     --dark-blue: #0084FF;
-    /*#1B4BCD*/
-    /*0046dd*/
     --light-blue: #2596ff;
-    /*0084FF*/
     --dark-red: #ff0000;
     --light-red: #ff6464;
     --blue-background: #DEEEFF;
@@ -180,20 +253,17 @@ button[type="submit"] {
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme="light"]) {
     --color: #fff;
     --color-dark: #ffffff84;
     --background-color: #000000;
     --background-pic: url('assets/blue-background.png');
     --dark-blue: #1C5899;
-    /*#0046c8;*/
     --light-blue: #79beff;
     --dark-red: #ba0000;
-    /*ff0000*/
     --light-red: #ff7575;
     --blue-background: #000A15;
     --blue: #00165d;
     --cardBackground: #00145770;
-
   }
 }

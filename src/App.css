@@ -376,6 +376,11 @@
   margin-top: 0.2rem;
   margin-bottom: 0.2rem;
   font-size: 1.5rem;
+  width: 100%;
+  text-align: center;
+  text-wrap: balance;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .TextBox {
@@ -595,6 +600,7 @@
   height: 100%;
   flex-direction: row;
   align-items: flex-start;
+  margin-bottom: 4rem;
 }
 
 .Genres h3 {
@@ -612,7 +618,7 @@
   height: 100%;
   background-color: var(--blue);
   overflow-y: scroll;
-  ;
+
 }
 
 .Games {

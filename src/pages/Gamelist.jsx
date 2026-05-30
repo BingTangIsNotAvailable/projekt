@@ -33,6 +33,7 @@ function Gamelist() {
           {genres.map(genre => (
             <a key={genre.id} href="#">{genre.name}</a>
           ))}
+          {/* the last genre is not visible and is too far down - scrolling is functional but is too close to the edge */}
         </div>
         <div className='Change'>
           <div className='Search'>
