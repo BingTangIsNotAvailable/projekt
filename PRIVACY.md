@@ -1,0 +1,1 @@
+Toto je studentský projekt pro Stříbrníky. Vaši e-mailovou adresu shromažďujeme výhradně za účelem ověření účtu. Vaše data neprodáváme, nepoužíváme sledovací soubory cookie ani je nepoužíváme k marketingovým účelům. Veškerá data lze na požádání smazat.
