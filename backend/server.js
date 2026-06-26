@@ -19,72 +19,6 @@ dotenv.config();
 // Run database migrations on startup
 migrateDb().catch(console.error);
 
-// Media assets helper (copies avatars and downloads music) delete
-/*function setupMediaAssets() {
-    const avatarsSrcDir = "C:/Users/malap/.gemini/antigravity-ide/brain/a767ed43-df6a-4672-bb4f-7165df39c809";
-    const avatarsDestDir = path.resolve("../Planet.X_Vite/src/assets/avatars");
-    const musicDestDir = path.resolve("../Planet.X_Vite/public/music");
-
-    // Ensure directories exist
-    if (!fs.existsSync(avatarsDestDir)) {
-        fs.mkdirSync(avatarsDestDir, { recursive: true });
-    }
-    if (!fs.existsSync(musicDestDir)) {
-        fs.mkdirSync(musicDestDir, { recursive: true });
-    }
-
-    // List of avatars to copy
-    const avatars = [
-        { srcName: "cosmic_avatar_1781611980523.png", destName: "cosmic.png" },
-        { srcName: "cyberpunk_avatar_1781611998596.png", destName: "cyberpunk.png" },
-        { srcName: "astronaut_avatar_1781612016812.png", destName: "astronaut.png" },
-        { srcName: "retro_avatar_1781612032869.png", destName: "retro.png" },
-        { srcName: "alien_avatar_1781612045249.png", destName: "alien.png" }
-    ];
-
-    avatars.forEach(avatar => {
-        const srcPath = path.join(avatarsSrcDir, avatar.srcName);
-        const destPath = path.join(avatarsDestDir, avatar.destName);
-        if (fs.existsSync(srcPath)) {
-            try {
-                fs.copyFileSync(srcPath, destPath);
-                console.log(`Copied ${avatar.srcName} to ${avatar.destName} successfully.`);
-            } catch (err) {
-                console.error(`Failed to copy avatar ${avatar.srcName}:`, err.message);
-            }
-        }
-    });
-
-    // Download music temp.
-    const musicTracks = [
-        { url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3", destName: "track4.mp3" },
-        { url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3", destName: "track5.mp3" }
-    ];    musicTracks.forEach(track => {
-        const destPath = path.join(musicDestDir, track.destName);
-        if (!fs.existsSync(destPath)) {
-            console.log(`Downloading music track: ${track.destName} from ${track.url}`);
-            const file = fs.createWriteStream(destPath);
-            https.get(track.url, response => {
-                response.pipe(file);
-                file.on("finish", () => {
-                    file.close();
-                    console.log(`Downloaded ${track.destName} successfully.`);
-                });
-            }).on("error", err => {
-                fs.unlink(destPath, () => { });
-                console.error(`Error downloading ${track.destName}:`, err.message);
-            });
-        }
-    });
-}*/
-
-// Setup media assets
-/*try {
-    setupMediaAssets();
-} catch (e) {
-    console.error("Error setting up media assets:", e.message);
-}*/
-
 // Ensure directories exist
 const uploadDirs = ["uploads/games", "uploads/covers", "uploads/pfps"];
 uploadDirs.forEach(dir => {
@@ -169,7 +103,6 @@ async function sendMailSafely(to, subject, text, html) {
 app.post("/api/signup", async (req, res) => {
     try {
         const { username, email, password } = req.body;
-        console.log(username, email, password) // debugging log
 
         const hashedPassword = await bcrypt.hash(password, 10);
         const token = crypto.randomBytes(32).toString("hex");

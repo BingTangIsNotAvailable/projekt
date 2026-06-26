@@ -1,15 +1,31 @@
 import mysql from 'mysql2/promise';
+import dotenv from 'dotenv';
 
-// Create a connection pool
-export const pool = mysql.createPool({
-    host: 'localhost',
-    user: 'root',
-    password: '',
-    database: 'planetx',
+dotenv.config();
+
+const dbUrl = process.env.DATABASE_URL;
+const hasSslRequired = process.env.DATABASE_SSLMODE === 'REQUIRED' || /ssl-mode=REQUIRED/i.test(dbUrl || '');
+
+const parsedUrl = dbUrl ? new URL(dbUrl) : null;
+
+const dbConfig = {
+    host: parsedUrl?.hostname || process.env.DATABASE_HOST || 'localhost',
+    port: parsedUrl?.port ? parseInt(parsedUrl.port, 10) : parseInt(process.env.DATABASE_PORT || '3306', 10),
+    user: decodeURIComponent(parsedUrl?.username || process.env.DATABASE_USER || 'root'),
+    password: decodeURIComponent(parsedUrl?.password || process.env.DATABASE_PASS || ''),
+    database: (parsedUrl?.pathname || '').replace(/^\//, '') || process.env.DATABASE_NAME || 'planetx',
     waitForConnections: true,
     connectionLimit: 100,
-    queueLimit: 0
-});
+    queueLimit: 0,
+    connectTimeout: 15000
+};
+
+if (hasSslRequired) {
+    dbConfig.ssl = { rejectUnauthorized: false };
+}
+
+// Create a connection pool
+export const pool = mysql.createPool(dbConfig);
 
 // Add a to database
 export async function addRecord(table, data) {

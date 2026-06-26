@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "5000:5000" # Maps localhost:5000 to the container
+    env_file:
+      - ./backend/.env # Loads your Aiven DATABASE_URL and Resend/Gmail keys safely
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "5173:5173" # Maps localhost:5173 to the container
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    depends_on:
+      - backend
