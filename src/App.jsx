@@ -7,20 +7,14 @@ import Signup from './pages/Signup.jsx'
 import ERROR from './pages/ERROR.jsx'
 import User from './pages/User.jsx'
 import Gamelist from './pages/Gamelist.jsx'
+import Game from './pages/Game.jsx'
+import Verify from "./pages/Verify"
+import Loading from "./pages/Loading"
+import Pagemaker from "./pages/Pagemaker"
+import Forgotpassword from "./pages/Forgotpassword"
+import Resetpassword from "./pages/Resetpassword"
 
-/*delete later*/
-import Card from './parts/Card.jsx'
-
-// Will chnage later to a different routing system if possible and READ the documantations
-/*      <nav>
-        <Link to="/">Home</Link> |
-        <Link to="/Login">Login</Link> |
-        <Link to="/Signup">Signup</Link>
-      </nav> */
-      
 function App() {
-
-
   return (
     <>
       <Routes>
@@ -30,9 +24,13 @@ function App() {
         <Route path="/ERROR" element={<ERROR />} />
         <Route path="/User" element={<User />} />
         <Route path="/Gamelist" element={<Gamelist />} />
+        <Route path="/Game/:id" element={<Game />} />
+        <Route path="/verify/:token" element={<Verify />} />
+        <Route path="/Loading" element={<Loading />} />
+        <Route path="/Pagemaker" element={<Pagemaker />} />
+        <Route path="/forgot-password" element={<Forgotpassword />} />
+        <Route path="/reset/:token" element={<Resetpassword />} />
         <Route path="*" element={<ERROR />} />
-
-        <Route path="/Card" element={<Card />} />
       </Routes>
     </>
   )

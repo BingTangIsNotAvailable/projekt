@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Orbit:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inika:wght@400;700&display=swap');
+
 :root {
   font-family: 'Inika', serif;
   line-height: 1.5;
@@ -9,37 +10,74 @@
   color-scheme: light dark;
   color: var(--color);
   background-color: var(--background-color);
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--dark-blue) transparent
+    /*var(--background-color)*/
+  ;
+  overflow-x: hidden;
 
+  user-select: none;
 
   /*font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;*/
 }
-h1, h2, h3, h4 {
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+h1,
+h2,
+h3,
+h4 {
   font-family: 'Orbitron', Arial;
   font-weight: 500;
-  font-size: 3em;
+  font-size: 2.5rem;
 }
-h2{
-  font-size: 4em;
+
+h2 {
+  font-size: 2.3rem;
 }
-h5{
-  font-size: 1em;
+
+h5 {
+  font-size: 0.5rem;
   font-weight: 400;
 }
-h4{
-  font-size: 2em;
+
+h4 {
+  font-size: 1rem;
 }
-p{
+
+p {
   font-family: 'Orbit', sans-serif;
-  font-size: 1.5em;
+  font-size: 0.75rem;
 }
+
 a {
   color: var(--light-red);
   text-decoration: inherit;
-  font-size: 1.5em;
+  font-size: 0.9rem;
 }
+
+a:active {
+  color: var(--dark-red);
+}
+
+a:focus {
+  color: var(--dark-red);
+}
+
 a:hover {
   color: var(--dark-red);
 }
@@ -48,12 +86,15 @@ body {
   margin: 0;
   padding: 0;
 }
+
 /*for linear border*/
-.btn_white, .btn_blue {
-  border: 4px solid transparent;
-  border-radius: 15px;
+.btn_white,
+.btn_blue {
+  border: 3px solid transparent;
+  border-radius: 10px;
 }
-.btn_white{
+
+.btn_white {
   color: var(--color);
   /*border problem: button does not respond to border outline (its always on 1px in width) and does not react to border radius at all (button has background-image = linear(blue, white) 1)*/
   /*border-image: linear-gradient(var(--color), var(--color-dark), transparent) 1;*/
@@ -61,7 +102,8 @@ body {
     linear-gradient(var(--background-color)) padding-box,
     linear-gradient(var(--color), transparent) border-box;
 }
-.btn_blue{
+
+.btn_blue {
   color: var(--dark-blue);
   /*border-image: linear-gradient(var(--dark-blue), var(--dark-blue), transparent) 1;
   background-clip: padding-box;*/
@@ -70,14 +112,59 @@ body {
     linear-gradient(var(--dark-blue), transparent) border-box;
 }
 
+
+
+/*Button download*/
+.btn_download,
+.btn_delete {
+  background: linear-gradient(135deg, var(--blue-background) 0%, var(--dark-blue) 100%);
+  color: var(--color) !important;
+  border: none;
+  border-radius: 5px;
+  /*padding: 6px 14px;
+  font-size: 0.85rem;*/
+  box-shadow: 0 0 10px rgba(0, 132, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.btn_download:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 15px rgba(0, 132, 255, 0.6);
+  filter: brightness(1.2);
+}
+
+.btn_download:active {
+  transform: translateY(0);
+}
+
+
+/*Button delete*/
+.btn_delete {
+  background: linear-gradient(135deg, var(--dark-red) 0%, #7f0000 100%);
+  color: var(--color) !important;
+  border: none;
+  box-shadow: 0 0 10px rgba(186, 0, 0, 0.3);
+}
+
+.btn_delete:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.6);
+  filter: brightness(1.2);
+}
+
+.btn_delete:active {
+  transform: translateY(0);
+}
+
+
 /*change the cursor if possible*/
-.btn{
+.btn {
   background-color: transparent;
-  margin-left: 0.7em;
-  min-width: 3.7em;
-  height: 1em;
-  padding: 0.5em 0.5em;
-  font-size: 1.7em;
+  margin-left: 1rem;
+  min-width: 3.7rem;
+  height: 1rem;
+  padding: 0.6rem 0.6rem;
+  font-size: 1.2rem;
   font-weight: 500;
   font-family: inherit;
   cursor: pointer;
@@ -86,33 +173,136 @@ body {
   align-items: center;
   justify-content: center;
 }
-button[type="submit"]{
-  height: 2em;
+
+button[type="submit"] {
+  height: 2rem;
 }
-.btn_round{
+
+.btn_round {
   border-radius: 50px;
-  min-width: 2.3em;
+  min-width: 2.3rem;
 }
-.btn_blue:hover, .btn_white:hover {
+
+.btn_blue:hover,
+.btn_white:hover,
+.button:hover {
   /*border-image: linear-gradient(var(--dark-red), var(--dark-red), transparent) 1;*/
   background:
     linear-gradient(var(--background-color)) padding-box,
     linear-gradient(var(--dark-red), transparent) border-box;
   color: var(--dark-red);
 }
-button:focus,
-button:focus-visible {
+
+.button:focus,
+.button:focus-visible {
   outline: 3px var(--dark-red);
 }
 
+.button {
+  font-family: 'Orbitron', Arial;
+  font-size: 0.7rem;
+  width: 5rem;
+  height: 2rem;
+  border-radius: 5px;
+  border: none;
+  background-color: var(--blue-background);
+  box-shadow: var(--blue) 0px 0px 10px 0px;
+  border: 1px solid var(--blue);
+  color: var(--color);
+  cursor: pointer;
+  transition: background-color 0.5s;
+  margin-top: 10px;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+
+.Clear_btn {
+  border: none;
+  background: transparent;
+  transition: none;
+  font-size: 1.5rem;
+  color: var(--color);
+  cursor: pointer;
+}
+
+.Clear_btn:hover {
+  color: var(--dark-red);
+}
+
+.Clear_btn.playing i {
+  color: var(--dark-red);
+  text-shadow: 0 0 8px var(--dark-red);
+  animation: pulseMusic 1.5s infinite ease-in-out;
+  display: inline-block;
+}
+
+@keyframes pulseMusic {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.25);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+/*supports both system preference and manual data-theme override */
+:root {
+  --color: #fff;
+  --color-dark: #ffffff84;
+  --background-color: #000000;
+  --background-pic: url('assets/blue-background.png');
+  --dark-blue: #1C5899;
+  --light-blue: #79beff;
+  --dark-red: #ba0000;
+  --light-red: #ff7575;
+  --blue-background: #000A15;
+  --blue: #00165d;
+  --cardBackground: #00145770;
+}
+
+:root[data-theme="dark"] {
+  --color: #fff;
+  --color-dark: #ffffff84;
+  --background-color: #000000;
+  --background-pic: url('assets/blue-background.png');
+  --dark-blue: #1C5899;
+  --light-blue: #79beff;
+  --dark-red: #ba0000;
+  --light-red: #ff7575;
+  --blue-background: #000A15;
+  --blue: #00165d;
+  --cardBackground: #00145770;
+}
+
+:root[data-theme="light"] {
+  --color: #000000;
+  --color-dark: #00000084;
+  --background-color: #ffffff;
+  --background-pic: url('assets/flashBackground.png');
+  --dark-blue: #0084FF;
+  --light-blue: #2596ff;
+  --dark-red: #ff0000;
+  --light-red: #ff6464;
+  --blue-background: #DEEEFF;
+  --blue: #9BCBFF;
+  --cardBackground: #9bcbff70;
+}
+
 @media (prefers-color-scheme: light) {
-  :root {
+  :root:not([data-theme="dark"]) {
     --color: #000000;
     --color-dark: #00000084;
     --background-color: #ffffff;
     --background-pic: url('assets/flashBackground.png');
-    --dark-blue: #0084FF; /*#1B4BCD*/ /*0046dd*/
-    --light-blue: #2596ff; /*0084FF*/
+    --dark-blue: #0084FF;
+    --light-blue: #2596ff;
     --dark-red: #ff0000;
     --light-red: #ff6464;
     --blue-background: #DEEEFF;
@@ -120,19 +310,19 @@ button:focus-visible {
     --cardBackground: #9bcbff70;
   }
 }
+
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme="light"]) {
     --color: #fff;
     --color-dark: #ffffff84;
     --background-color: #000000;
     --background-pic: url('assets/blue-background.png');
-    --dark-blue: #1C5899;/*#0046c8;*/
+    --dark-blue: #1C5899;
     --light-blue: #79beff;
-    --dark-red: #ba0000; /*ff0000*/
+    --dark-red: #ba0000;
     --light-red: #ff7575;
     --blue-background: #000A15;
     --blue: #00165d;
     --cardBackground: #00145770;
-
   }
 }
