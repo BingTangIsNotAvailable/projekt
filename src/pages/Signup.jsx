@@ -7,19 +7,16 @@ function Signup() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  /*const hashPassword = (password) => {
-    // Implement a simple hash function (for demonstration purposes only) DONE BY TEACHER, DELETE THIS AND REPLACE WITH ACTUAL HASHING IN PRODUCTION
-    let hash = 0; 
-    for (let i = 0; i < password.length; i++) {
-      const char = password.charCodeAt(i);
-      hash = ((hash << 5) - hash) + char;
-      hash = hash & hash; // Convert to 32-bit integer
-    }
-    return hash;
-  };*/
+  const [message, setMessage] = useState("");
+  const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setError("");
+    setMessage("");
+    setIsLoading(true);
+
     try {
       const response = await fetch("http://localhost:3001/api/signup", {
         method: "POST",
@@ -29,16 +26,21 @@ function Signup() {
         body: JSON.stringify({
           username,
           email,
-          password/*: hashPassword(password) // Hash the password before sending*/
+          password
         })
-
       });
 
       const data = await response.json();
-      console.log("Server response:", data);
-
+      if (response.ok) {
+        setMessage(data.message || "User created successfully. Verify email.");
+      } else {
+        setError(data.error || "Signup failed.");
+      }
     } catch (err) {
       console.error("Error:", err);
+      setError("Failed to connect to the mainframe.");
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -51,16 +53,21 @@ function Signup() {
           <form onSubmit={handleSubmit}>
             <div>
               <legend>Username</legend>
-              <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
+              <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} required disabled={isLoading} />
 
               <legend>Password</legend>
-              <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+              <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required disabled={isLoading} />
 
               <legend>Email</legend>
-              <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
-
+              <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required disabled={isLoading} />
             </div>
-            <button type="submit" className='btn'>Sign up</button>
+
+            {message && <div style={{ color: '#4ade80', fontSize: '14px', margin: '10px 0', textAlign: 'center' }}>{message}</div>}
+            {error && <div style={{ color: '#f87171', fontSize: '14px', margin: '10px 0', textAlign: 'center' }}>{error}</div>}
+
+            <button type="submit" className='btn' disabled={isLoading}>
+              {isLoading ? "Transmitting..." : "Sign up"}
+            </button>
             <a href="/Login">Already have an account?</a>
           </form>
         </div>

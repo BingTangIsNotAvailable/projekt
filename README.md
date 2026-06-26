@@ -5,7 +5,7 @@ npm - 10.9.4
 nodemon - 3.1.10
 vite - 7.1.11
 
-## forgrt me not
+## forget me not
 npm uninstall <package-name>
 npm run dev (in Planet.X_Vite)
 npm start (in backend)

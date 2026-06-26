@@ -111,10 +111,10 @@ function Header() {
       <div className='header_filler'></div>
       <div className="header">
         <div className='left_header'>
-          <a href="/" className="logo_box">
+          <Link to="/" className="logo_box">
             <img src={Ico} alt="Icon" className='icon' />
             <h1>Planet.X</h1>
-          </a>
+          </Link>
         </div>
         <div className='right_header'>
           {/* Music button*/}
@@ -127,7 +127,7 @@ function Header() {
           </button>
 
           {/* theme button */}
-          <button 
+          <button
             className='Clear_btn'
             onClick={toggleTheme}
             title={`Switch to ${theme === 'dark' ? 'light' : 'dark'} theme`}
@@ -139,13 +139,13 @@ function Header() {
           <Link to="/User" className='btn_white btn_round btn'>User</Link>*/}
           {token ? (
             <>
-              <Link to="/User" className='btn_white btn_round btn'>User</Link>
-              <button className='btn_blue btn_round btn' onClick={() => {
+              <Link to="/User" className='btn_white btn'>User</Link>
+              <Link className='btn_blue btn' onClick={() => {
                 localStorage.removeItem("token");
                 window.location.href = "/login";
               }}>
                 Logout
-              </button>
+              </Link>
             </>
           ) : (
             <>

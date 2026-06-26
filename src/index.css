@@ -12,14 +12,29 @@
   background-color: var(--background-color);
   overflow-y: auto;
   scrollbar-width: thin;
-  scrollbar-color: var(--dark-blue) var(--background-color);
+  scrollbar-color: var(--dark-blue) transparent
+    /*var(--background-color)*/
+  ;
   overflow-x: hidden;
 
+  user-select: none;
 
   /*font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;*/
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
 }
 
 h1,
@@ -97,11 +112,55 @@ body {
     linear-gradient(var(--dark-blue), transparent) border-box;
 }
 
+
+
+/*Button download*/
+.btn_download,
+.btn_delete {
+  background: linear-gradient(135deg, var(--blue-background) 0%, var(--dark-blue) 100%);
+  color: var(--color) !important;
+  border: none;
+  border-radius: 5px;
+  /*padding: 6px 14px;
+  font-size: 0.85rem;*/
+  box-shadow: 0 0 10px rgba(0, 132, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.btn_download:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 15px rgba(0, 132, 255, 0.6);
+  filter: brightness(1.2);
+}
+
+.btn_download:active {
+  transform: translateY(0);
+}
+
+
+/*Button delete*/
+.btn_delete {
+  background: linear-gradient(135deg, var(--dark-red) 0%, #7f0000 100%);
+  color: var(--color) !important;
+  border: none;
+  box-shadow: 0 0 10px rgba(186, 0, 0, 0.3);
+}
+
+.btn_delete:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.6);
+  filter: brightness(1.2);
+}
+
+.btn_delete:active {
+  transform: translateY(0);
+}
+
+
 /*change the cursor if possible*/
 .btn {
   background-color: transparent;
   margin-left: 1rem;
-  /*0.7*/
   min-width: 3.7rem;
   height: 1rem;
   padding: 0.6rem 0.6rem;
@@ -193,7 +252,7 @@ button[type="submit"] {
   }
 }
 
-/* Theme configuration: supports both system preference and manual data-theme override */
+/*supports both system preference and manual data-theme override */
 :root {
   --color: #fff;
   --color-dark: #ffffff84;

@@ -9,8 +9,20 @@ function Home() {
   ]);
   const [inputValue, setInputValue] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [cardsOpen, setCardsOpen] = useState(false);
   const messagesEndRef = useRef(null);
   const isFirstRender = useRef(true);
+  const [games, setGames] = useState([]);
+  useEffect(() => {
+    fetch('http://localhost:3001/api/games')
+      .then(res => res.json())
+      .then(data => {
+        if (Array.isArray(data)) setGames(data);
+        else if (data.success && Array.isArray(data.games)) setGames(data.games);
+        else setGames(data);
+      })
+      .catch(err => console.error("Failed to fetch games:", err));
+  }, []);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -65,18 +77,27 @@ function Home() {
       <div className='Content'>
         <div className='HomeCard'>
           <h1>Welcome</h1>
-          <p>Your gateway to the universe of possibilities.</p>
+          <p>Feel free to share your games, webs or anything you can put in a zip file. Download at your own risk, I am not responsible for any damages.</p>
         </div>
       </div>
-      <div className='ExampleCards'>
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
+      <div className={`ExampleCardsDrawer${cardsOpen ? ' open' : ''}`}>
+        <button
+          className='ExampleCardsTab'
+          onClick={() => setCardsOpen(prev => !prev)}
+          title={cardsOpen ? 'Close examples' : 'Show examples'}
+        >
+          <span className='ExampleCardsTabLabel'>Games</span>
+          <span className={`ExampleCardsTabArrow${cardsOpen ? ' flipped' : ''}`}>›</span>
+        </button>
+        <div className='ExampleCards'>
+          {games.length > 0 ? (
+            games.map(game => (
+              <Card key={game.id} game={game} />
+            ))
+          ) : (
+            <p className="no-games">No games found.</p>
+          )}
+        </div>
       </div>
 
       {/* AI Chat Room */}
