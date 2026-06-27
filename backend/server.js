@@ -373,7 +373,7 @@ app.get("/api/verify/:token", async (req, res) => {
 
 app.post("/api/chat", async (req, res) => {
     try {
-        if (Math.random() < 0.40) {
+        if (Math.random() < 0.10) {
             const refusals = [
                 "CHYBA: Spojení přerušeno. Vlastně ne, jen se mi s tebou nechce mluvit.",
                 "Přenos selhal. Zkus to znovu... nebo radši ne. Ušetříš mi čas.",
