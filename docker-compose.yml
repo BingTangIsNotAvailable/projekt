@@ -4,7 +4,7 @@ services:
   backend:
     build: ./backend
     ports:
-      - "5000:5000" # Maps localhost:5000 to the container
+      - "3001:3001" # Maps localhost:3001 to the container
     env_file:
       - ./backend/.env # Loads your Aiven DATABASE_URL and Resend/Gmail keys safely
     volumes:
@@ -12,11 +12,11 @@ services:
       - /app/node_modules
 
   frontend:
-    build: ./frontend
+    build: ./Planet.X_Vite
     ports:
       - "5173:5173" # Maps localhost:5173 to the container
     volumes:
-      - ./frontend:/app
+      - ./Planet.X_Vite:/app
       - /app/node_modules
     depends_on:
       - backend
