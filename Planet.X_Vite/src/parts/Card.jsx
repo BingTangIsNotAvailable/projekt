@@ -6,7 +6,7 @@ import defaultImg from '../assets/nopic.jpg';
 function Card({ game }) {
   // Use uploaded game cover if exists, otherwise fallback to default asset
   const coverUrl = game?.image_path
-    ? `http://localhost:3001${game.image_path}`
+    ? `${window.API_URL}${game.image_path}`
     : defaultImg;
 
   return (

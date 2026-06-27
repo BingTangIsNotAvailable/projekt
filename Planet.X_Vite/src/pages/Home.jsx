@@ -14,7 +14,7 @@ function Home() {
   const isFirstRender = useRef(true);
   const [games, setGames] = useState([]);
   useEffect(() => {
-    fetch('http://localhost:3001/api/games')
+    fetch(`${window.API_URL}/api/games`)
       .then(res => res.json())
       .then(data => {
         if (Array.isArray(data)) setGames(data);
@@ -46,8 +46,8 @@ function Home() {
     setIsLoading(true);
 
     try {
-      // Calling our backend on port 3001
-      const response = await fetch('http://localhost:3001/api/chat', {
+      // Calling our backend
+      const response = await fetch(`${window.API_URL}/api/chat`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

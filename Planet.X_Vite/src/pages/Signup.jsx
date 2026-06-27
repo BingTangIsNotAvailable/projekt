@@ -18,7 +18,7 @@ function Signup() {
     setIsLoading(true);
 
     try {
-      const response = await fetch("http://localhost:3001/api/signup", {
+      const response = await fetch(`${window.API_URL}/api/signup`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"

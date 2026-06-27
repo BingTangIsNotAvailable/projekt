@@ -26,7 +26,7 @@ function Pagemaker() {
     }
 
     // Fetch genres
-    fetch("http://localhost:3001/api/genres")
+    fetch(`${window.API_URL}/api/genres`)
       .then(res => res.json())
       .then(data => {
         setGenres(data);
@@ -65,7 +65,7 @@ function Pagemaker() {
     }
 
     try {
-      const response = await fetch("http://localhost:3001/api/games", {
+      const response = await fetch(`${window.API_URL}/api/games`, {
         method: "POST",
         headers: {
           "Authorization": `Bearer ${token}`

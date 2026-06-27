@@ -44,7 +44,7 @@ function User() {
     }
 
     // Fetch user info
-    fetch("http://localhost:3001/api/user", {
+    fetch(`${window.API_URL}/api/user`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -67,7 +67,7 @@ function User() {
       });
 
     // Fetch user games
-    fetch("http://localhost:3001/api/user/games", {
+    fetch(`${window.API_URL}/api/user/games`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -104,7 +104,7 @@ function User() {
     }
 
     try {
-      const response = await fetch("http://localhost:3001/api/user/update", {
+      const response = await fetch(`${window.API_URL}/api/user/update`, {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -147,7 +147,7 @@ function User() {
   const getProfilePicUrl = () => {
     if (!user?.profile_pic) return defaultAvatar;
     if (user.profile_pic.startsWith("/uploads/")) {
-      return `http://localhost:3001${user.profile_pic}`;
+      return `${window.API_URL}${user.profile_pic}`;
     }
     // Preset local asset map
     const matchedPreset = AVATAR_PRESETS.find(p => p.path === user.profile_pic);

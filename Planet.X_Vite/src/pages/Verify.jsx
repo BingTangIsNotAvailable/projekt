@@ -9,7 +9,7 @@ function Verify() {
   useEffect(() => {
     const verifyUser = async () => {
       try {
-        const response = await fetch(`http://localhost:3001/api/verify/${token}`);
+        const response = await fetch(`${window.API_URL}/api/verify/${token}`);
         const data = await response.json();
 
         if (response.ok) {
@@ -53,7 +53,7 @@ function Verify() {
   useEffect(() => {
     const verifyUser = async () => {
       try {
-        const response = await fetch(`http://localhost:3001/api/verify/${token}`);
+        const response = await fetch(`${window.API_URL}/api/verify/${token}`);
         const data = await response.json();
 
         if (response.ok) {

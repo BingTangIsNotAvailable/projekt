@@ -21,7 +21,7 @@ function Game() {
   useEffect(() => {
     setIsLoading(true);
     // Fetch game details
-    fetch(`http://localhost:3001/api/games/${id}`)
+    fetch(`${window.API_URL}/api/games/${id}`)
       .then(res => res.json())
       .then(data => {
         setGame(data);
@@ -35,7 +35,7 @@ function Game() {
     // Fetch current user details if logged in
     const token = localStorage.getItem("token");
     if (token) {
-      fetch("http://localhost:3001/api/user", {
+      fetch(`${window.API_URL}/api/user`, {
         headers: {
           "Authorization": `Bearer ${token}`
         }
@@ -49,13 +49,13 @@ function Game() {
     }
 
     // Fetch comments
-    fetch(`http://localhost:3001/api/games/${id}/comments`)
+    fetch(`${window.API_URL}/api/games/${id}/comments`)
       .then(res => res.json())
       .then(data => setComments(data))
       .catch(err => console.error(err));
 
     // Fetch genres
-    fetch(`http://localhost:3001/api/genres`)
+    fetch(`${window.API_URL}/api/genres`)
       .then(res => res.json())
       .then(data => setGenres(data))
       .catch(err => console.error(err));
@@ -64,7 +64,7 @@ function Game() {
   const handleDownload = () => {
     if (!game) return;
     // Trigger download endpoint directly
-    window.open(`http://localhost:3001/api/games/${id}/download`, "_blank");
+    window.open(`${window.API_URL}/api/games/${id}/download`, "_blank");
   };
 
   const handleDelete = async () => {
@@ -74,7 +74,7 @@ function Game() {
 
     const token = localStorage.getItem("token");
     try {
-      const response = await fetch(`http://localhost:3001/api/games/${id}`, {
+      const response = await fetch(`${window.API_URL}/api/games/${id}`, {
         method: "DELETE",
         headers: {
           "Authorization": `Bearer ${token}`
@@ -106,7 +106,7 @@ function Game() {
 
     const token = localStorage.getItem("token");
     try {
-      const response = await fetch(`http://localhost:3001/api/games/${id}/comments`, {
+      const response = await fetch(`${window.API_URL}/api/games/${id}/comments`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -121,7 +121,7 @@ function Game() {
         setCommentSuccess("Comment posted successfully!");
         setNewComment("");
         // Re-fetch comments
-        fetch(`http://localhost:3001/api/games/${id}/comments`)
+        fetch(`${window.API_URL}/api/games/${id}/comments`)
           .then(res => res.json())
           .then(data => setComments(data));
       } else {
@@ -172,7 +172,7 @@ function Game() {
   }
 
   const coverUrl = game.image_path
-    ? `http://localhost:3001${game.image_path}`
+    ? `${window.API_URL}${game.image_path}`
     : defaultCover;
 
   return (

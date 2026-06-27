@@ -24,6 +24,8 @@ import { BrowserRouter } from 'react-router-dom'
 import App from './App.jsx'
 import './index.css'
 
+window.API_URL = import.meta.env.VITE_API_URL || "https://planetx.onrender.com";
+
 createRoot(document.getElementById('root')).render(
   <BrowserRouter>
     <App />

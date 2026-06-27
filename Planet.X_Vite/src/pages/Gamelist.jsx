@@ -10,15 +10,15 @@ function Gamelist() {
   const [selectedGenreId, setSelectedGenreId] = useState(null);
 
   useEffect(() => {
-    fetch("http://localhost:3001/api/genres")
+    fetch(`${window.API_URL}/api/genres`)
       .then(res => res.json())
       .then(data => setGenres(data));
   }, []);
 
   useEffect(() => {
     const url = search
-      ? `http://localhost:3001/api/games/search/${search}`
-      : "http://localhost:3001/api/games";
+      ? `${window.API_URL}/api/games/search/${search}`
+      : `${window.API_URL}/api/games`;
 
     fetch(url)
       .then(res => res.json())
