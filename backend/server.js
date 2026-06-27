@@ -403,7 +403,7 @@ app.post("/api/chat", async (req, res) => {
         res.send({ message: ">_ " + response.text() });
     } catch (error) {
         console.error("AI Error:", error);
-        res.status(500).send({ error: "Selhalo spojení s AI" });
+        res.status(500).send({ error: "Failed to connect to the mainframe" });
     }
 });
 

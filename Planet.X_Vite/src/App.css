@@ -256,8 +256,8 @@
 }
 
 .Message.Error {
-  background: rgba(255, 45, 117, 0.2);
-  border-color: rgba(255, 45, 117, 0.4);
+  /*background: rgba(255, 45, 117, 0.2);*/
+  /*border-color: rgba(255, 45, 117, 0.4);*/
   color: #ffb3c6;
 }
 
